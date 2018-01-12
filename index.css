@@ -1,0 +1,33 @@
+body{
+  background-color: darkgrey;
+}
+
+/*Removable styles*/
+.removable {
+  border-radius: 10px;;
+  width: 45%;
+  min-height: 260px;
+  background-color: rgba(230, 230, 230, 0.5);
+}
+
+.removable .dialog {
+  margin: 0;
+  background-image: url("assets/wall.jpeg");  
+  line-height: 85px;
+  border-left: 6px solid brown;
+  border-radius: 8px;
+  width: 450px;;
+  min-height: 85px;
+  font-size: 21px;
+  background-color: rgba(179, 0, 0, .45);
+  color: white;
+  text-align: center;
+  background-size: 100%;
+  background-position-y: -13px;
+}
+
+.removable h1{
+  color: blue;
+}
+
+/*perminint styles*/
