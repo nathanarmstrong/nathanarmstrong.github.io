@@ -9,8 +9,6 @@ var bad_name = objects[Math.floor(Math.random()*objects.length)] + " " + action[
 // <---- store submited name ---->
 submited_name = []
 
-// <---- select story div ---->
-var story = document.getElementById("story");
 
 // **** function to take user's name and create a verify user name ****
 function begin_story(){
@@ -28,10 +26,14 @@ delete_removable("submit_div","removable", 0);
 // var removable = document.getElementsByClassName("removable")[0];
 // submit_div.removeChild(removable[0]);
 
+// <---- select story div ---->
+var story = document.getElementById("story");
 
 // <---- create new removable div ---->
 var removable_div = document.createElement("div");
 removable_div.className = "removable";
+var dialog_div = document.createElement("div");
+dialog_div.className = "dialog"
 
 name_is = document.createElement("p");
 name_is.textContent = "Ah... soo your name is..."
@@ -54,10 +56,11 @@ okay_name_button_div.appendChild(ok_name_button);
 okay_name_button_div.appendChild(wrong_name_button)
 
 // <--- removable div's content --->
-removable_div.appendChild(name_is);
-removable_div.appendChild(show_bad_name)
-removable_div.appendChild(acknowledge_name);
-removable_div.appendChild(okay_name_button_div)
+dialog_div.appendChild(name_is);
+dialog_div.appendChild(show_bad_name);
+dialog_div.appendChild(acknowledge_name);
+dialog_div.appendChild(okay_name_button_div);
+removable_div.appendChild(dialog_div);
 
 // <--- create new div --->
 story.appendChild(removable_div);
@@ -66,24 +69,39 @@ story.appendChild(removable_div);
 function name_wrong(){
   delete_removable("story", "removable", 0);
   var removable_div = document.createElement("div")
+  create_dialog_div(removable_div);
+  dialog_div = document.getElementsByClassName("dialog");
+  console.log(dialog_div);
   removable_div.className = "removable";
   var sorry_your_name_is = document.createElement("p");
   sorry_your_name_is.textContent = "Sorry I dont care... I am goint to just call you '" + bad_name + "' I like the way it sounds. Its much better then that stupid name you game me. '" + submited_name + "', HA what kinda idot names their kid that.";
 
-removable_div.appendChild(sorry_your_name_is);
-continue_button("Continue with your stupid name", "background_check()", removable_div)
-story.appendChild(removable_div)
+  // removable_div.appendChild(sorry_your_name_is);
+  story.appendChild(removable_div)
+  console.log(dialog_div[0].appendChild(sorry_your_name_is))
+  continue_button("Continue with your much better name", "background_check()", dialog_div[0])
 
 }
 
 function name_okay(){
   delete_removable("story", "removable", 0);
-  create_removable_div();
+  create_removable_div(story);
+  removable_div = document.getElementsByClassName("removable")
+  create_dialog_div();
+
 }
 
-function create_removable_div(){
+function create_removable_div(parent){
   var removable_div = document.createElement("div");
   removable_div.className = "removable";
+  parent.appendChild(removable_div);
+}
+
+function create_dialog_div(parent){
+  removable_div = document.getElementsByClassName("removable")
+  var dialog_div = document.createElement("div");
+  dialog_div.className = "dialog";
+  parent.appendChild(dialog_div);
 }
 
 // **** function takes parent and deletes the removable class div child ****

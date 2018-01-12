@@ -10,6 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <!--[if lt IE 7]>
@@ -17,12 +18,14 @@
     <![endif]-->
     <div id="submit_div">
       <div class="removable">
-        <p>Please enter your First and Last name to play</p>
-        <form id="submit_form">
-          <input class="name_submit" type="text" placeholder="First Name">
-          <input class="name_submit" type="text" placeholder="Last Name">
-          <button type="button" onclick="begin_story()" >Click to Submit</button>
-        </form>
+        <div class="dialog">
+          <p>Please enter your First and Last name to play</p>
+          <form id="submit_form">
+            <input class="name_submit" type="text" placeholder="First Name">
+            <input class="name_submit" type="text" placeholder="Last Name">
+            <button type="button" onclick="begin_story()" >Click to Submit</button>
+          </form>
+        </div>
       </div>
     </div>
     <div id="story">
