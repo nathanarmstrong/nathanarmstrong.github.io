@@ -9,7 +9,11 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/begin.js"></script>
+    <script src="js/name.js"></script>
+    <script src="js/monster.js"></script>
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
@@ -21,8 +25,8 @@
         <div class="dialog">
           <p>Please enter your First and Last name to play</p>
           <form id="submit_form">
-            <input class="name_submit" type="text" placeholder="First Name">
-            <input class="name_submit" type="text" placeholder="Last Name">
+            <input class="name_submit" type="text" placeholder="First Name" minlength="1">
+            <input class="name_submit" type="text" placeholder="Last Name" minlength="1">
             <button type="button" onclick="begin_story()" >Click to Submit</button>
           </form>
         </div>
